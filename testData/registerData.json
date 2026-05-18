@@ -8,13 +8,13 @@
     "zipCode": "10001",
     "phone": "9999999999",
     "ssn": "12345",
-    "username": "nanu1234567",
+    "username": "nanu32",
     "password": "Pass@123"
   },
 
   "invalidPasswordUser": {
 
-    "username": "nanu12",
+    "username": "nanu32",
     "password": "wrongpass"
   },
 
