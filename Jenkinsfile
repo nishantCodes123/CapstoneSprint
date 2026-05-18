@@ -3,8 +3,7 @@ pipeline {
     agent any
 
     tools {
-       nodejs 'NodeJS'
-    allure 'Allure'
+        nodejs 'NodeJS'
     }
 
     stages {
@@ -53,6 +52,12 @@ pipeline {
                 reportName: 'Playwright HTML Report',
                 keepAll: true,
                 alwaysLinkToLastBuild: true
+            ])
+
+            allure([
+                includeProperties: false,
+                jdk: '',
+                results: [[path: 'allure-results']]
             ])
         }
     }
