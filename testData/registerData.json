@@ -1,0 +1,24 @@
+{
+  "validUser": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": "New York",
+    "city": "NY",
+    "state": "NY",
+    "zipCode": "10001",
+    "phone": "9999999999",
+    "ssn": "12345",
+    "username": "nanu1234567",
+    "password": "Pass@123"
+  },
+
+  "invalidPasswordUser": {
+
+    "username": "nanu12",
+    "password": "wrongpass"
+  },
+
+  "specialCharUser": {
+    "username": "@@@##"
+  }
+}

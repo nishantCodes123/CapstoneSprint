@@ -1,0 +1,16 @@
+{
+  "validCustomer": {
+    "customerId": 12323,
+    "fromAccountId": 13344
+  },
+
+  "accountTypes": {
+    "savings": 1,
+    "checking": 0
+  },
+
+  "invalidData": {
+    "fakeAccountId": 99999999,
+    "fakeCustomerId": 99999999
+  }
+}
