@@ -4,11 +4,18 @@ import { logger } from '../utils/logger';
 
 export class OpenAccountPage {
 
-  constructor(private page: Page) {}
+  constructor(private page: Page) { }
 
   async open() {
 
     logger.info('Opening account creation page');
+
+    await this.page.waitForLoadState('networkidle');
+
+    await this.page.waitForSelector('text=Open New Account', {
+      state: 'visible',
+      timeout: 15000
+    });
 
     await this.page.click('text=Open New Account');
   }
