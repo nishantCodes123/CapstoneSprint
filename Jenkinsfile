@@ -29,7 +29,17 @@ pipeline {
 
         stage('Run Playwright Tests') {
             steps {
-               bat 'npx playwright test || exit 0'
+
+                script {
+
+                    try {
+                        bat 'npx playwright test'
+                    }
+                    catch (Exception e) {
+                        echo 'Some tests failed, continuing pipeline...'
+                    }
+
+                }
             }
         }
     }
@@ -39,13 +49,13 @@ pipeline {
         always {
 
             publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'playwright-report',
-                    reportFiles: 'index.html',
-                    reportName: 'HTML Report'
-])
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'HTML Report'
+            ])
 
             allure([
                 includeProperties: false,
