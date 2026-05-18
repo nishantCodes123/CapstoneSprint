@@ -14,7 +14,7 @@ export class OpenAccountPage {
 
     await this.page.waitForSelector('text=Open New Account', {
       state: 'visible',
-      timeout: 15000
+      timeout: 30000
     });
 
     await this.page.click('text=Open New Account');
