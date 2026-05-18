@@ -3,7 +3,10 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS'
+        tools {
+    nodejs 'NodeJS'
+    allure 'Allure'
+}
     }
 
     stages {
