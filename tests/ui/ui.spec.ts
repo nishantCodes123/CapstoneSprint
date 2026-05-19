@@ -59,10 +59,7 @@ test.describe('UI Test Cases @ui', () => {
     }
   );
 
-  test('TC-LOGIN-02 Login with Invalid Password @regression @negative',async ({loginPage }) => {
-
-    
-      
+  test('TC-LOGIN-02 Login with Invalid Password @regression @negative',async ({loginPage }) => {   
 
       await loginPage.login(
         registerData.validUser.username,
