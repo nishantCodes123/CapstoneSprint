@@ -33,7 +33,11 @@ export const test = base.extend<{ loginPage: LoginPage;registerPage: RegisterPag
 });
 test.afterEach(async ({}, testInfo: TestInfo) => {
 
-    const files = fs.readdirSync(testInfo.outputDir);
+   if (!fs.existsSync(testInfo.outputDir)) {
+    return;
+}
+
+const files = fs.readdirSync(testInfo.outputDir);
 
     for (const file of files) {
 

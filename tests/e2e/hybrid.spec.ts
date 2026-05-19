@@ -7,10 +7,7 @@ import { logger } from '../../utils/logger';
 test.describe('Hybrid E2E Tests @e2e', () => {
 
   
-  test('TC-E2E-01 Register a new user and confirm the savings account via API @e2e @smoke @regression', async ({
-    page,
-    apiContext,
-  }) => {
+  test('TC-E2E-01 Register a new user and confirm the savings account via API @e2e @smoke @regression', async ({ page, apiContext,}) => {
     const registerPage = new RegisterPage(page);
     const openAccountPage = new OpenAccountPage(page);
 

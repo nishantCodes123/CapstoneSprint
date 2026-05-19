@@ -3,12 +3,11 @@ import registerData from '../../testData/registerData.json';
 import { logger } from '../../utils/logger';
 
 test.describe('UI Test Cases @ui', () => {
-
-  test('TC-AC-UI-01 Create New User Account with Valid Data @smoke @regression',async ({registerPage,openAccountPage
-    }) => {
+  
+  test('TC-AC-UI-01 Create New User Account with Valid Data @smoke @regression',async ({registerPage,openAccountPage}) => {
 
       await registerPage.open();
-
+      
       const dynamicUser = {
         ...registerData.validUser,
         username: `user_${Date.now()}`
