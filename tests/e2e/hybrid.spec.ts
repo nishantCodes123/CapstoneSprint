@@ -14,7 +14,11 @@ test.describe('Hybrid E2E Tests @e2e', () => {
     
     logger.info('Registering a new user through the UI');
     await registerPage.open();
-    await registerPage.register(registerData.validUser);
+    const dynamicUser = {
+        ...registerData.validUser,
+        username: `user_${Date.now()}`
+      };
+    await registerPage.register(dynamicUser);
     // await registerPage.expectRegistrationSuccess();
 
     
@@ -43,7 +47,7 @@ test.describe('Hybrid E2E Tests @e2e', () => {
     const accountData = await response.json();
     logger.info(`API returned: ${JSON.stringify(accountData)}`);
 
-    // The ID and type must match 
+   
     expect(String(accountData.id)).toBe(String(newAccountId));
     expect(accountData.type).toBe('SAVINGS');
 
