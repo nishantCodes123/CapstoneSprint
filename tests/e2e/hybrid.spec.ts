@@ -14,29 +14,29 @@ test.describe('Hybrid E2E Tests @e2e', () => {
     const registerPage = new RegisterPage(page);
     const openAccountPage = new OpenAccountPage(page);
 
-    //  Register 
-    logger.info('Step 1 — Registering a new user through the UI');
+    
+    logger.info('Registering a new user through the UI');
     await registerPage.open();
     await registerPage.register(registerData.validUser);
     // await registerPage.expectRegistrationSuccess();
 
-    //  Open a savings account 
-    logger.info('Step 2 — Opening a savings account for the new user');
+    
+    logger.info(' Opening a savings account for the new user');
     await openAccountPage.open();
     await openAccountPage.createSavingsAccount();
     await openAccountPage.expectAccountCreated();
 
-    //  Capture the new account ID from the page
+   
     const newAccountIdLocator = page.locator('#newAccountId');
     await expect(newAccountIdLocator).toBeVisible();
     const newAccountId = (await newAccountIdLocator.textContent())?.trim();
     expect(newAccountId).toBeTruthy();
-    logger.info(`Step 3 — New account ID captured from UI: ${newAccountId}`);
+    logger.info(` New account ID captured from UI: ${newAccountId}`);
 
     await page.screenshot({ path: 'screenshots/new-account-created.png' });
 
-    //  Step 4: Verify the account via the banking API 
-    logger.info(`Step 4 — Verifying account ${newAccountId} through the API`);
+    
+    logger.info(` Verifying account ${newAccountId} through the API`);
     const response = await apiContext.get(
       `/parabank/services/bank/accounts/${newAccountId}`
     );

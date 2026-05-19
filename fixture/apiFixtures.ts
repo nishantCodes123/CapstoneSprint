@@ -4,7 +4,7 @@ import { logger } from '../utils/logger';
 
 
 
-export const test = base.extend<{apiContext: APIRequestContext}>({ //original playwright ko extend karo
+export const test = base.extend<{apiContext: APIRequestContext}>({ //original playwright ko extend kiya
 
   apiContext: async ({}, use) => {
 

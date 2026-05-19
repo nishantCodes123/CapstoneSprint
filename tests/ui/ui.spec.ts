@@ -1,4 +1,4 @@
-import { test,expect } from '../../fixture/uiFixtures';
+import { test } from '../../fixture/uiFixtures';
 import registerData from '../../testData/registerData.json';
 import { logger } from '../../utils/logger';
 
@@ -89,6 +89,7 @@ test.describe('UI Test Cases @ui', () => {
       );
 
       await registerPage.expectRegistrationSuccess();
+      
     }
   ); // to be put in defect report
 
